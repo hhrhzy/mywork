@@ -529,7 +529,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaxCalculator3.21   hzy_for_twj";
+            this.Text = "TaxCalculator4.21   hzy_for_twj";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
