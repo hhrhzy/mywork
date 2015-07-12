@@ -904,6 +904,26 @@ namespace TaxCalculator
             }
         }
 
+        private void textBox_shuihou_TextChanged(object sender, EventArgs e)
+        {
+            var reg = new Regex("^[0-9.-]*$");
+            var str = textBox_shuihou.Text.Trim();
+            var sb = new StringBuilder();
+            if (!reg.IsMatch(str))
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (reg.IsMatch(str[i].ToString()))
+                    {
+                        sb.Append(str[i].ToString());
+                    }
+                }
+                textBox_shuihou.Text = sb.ToString();
+                textBox_shuihou.SelectionStart = textBox_shuihou.Text.Length; //定义输入焦点在最后一个字符
+            }
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -923,7 +943,53 @@ namespace TaxCalculator
             DoExport(dt);
         }
 
-       
+        private void button_shuiqian_Click(object sender, EventArgs e)
+        {
+           resultBox_shuiqian.Text = DoCaTaxOld(double.Parse(textBox_shuihou.Text),"").ToString();
+        }
+
         
+        private double DoCaTaxOld(double AfterTax,string region)
+        {
+            double result = 0;
+            //if (region != "中国")
+            //{
+            //    startTax = 4800;
+            //}
+            if (AfterTax <= 3500)
+            {
+                result = AfterTax;
+            }
+            else if (AfterTax > 3500 && AfterTax <= 4955)
+            {
+                result = (AfterTax-3500*0.03)/0.97;
+            }
+            else if (AfterTax > 4955 && AfterTax <= 7655)
+            {
+                result = (45+AfterTax-5000*0.1)/0.9;
+            }
+            else if (AfterTax > 7655 && AfterTax <= 11255)
+            {
+                result = (45+300+AfterTax-8000*0.2)/0.8;
+            }
+            else if (AfterTax > 11255 && AfterTax <= 30755)
+            {
+                result = (45+300+900+AfterTax-12500*0.25)/0.75;
+            }
+            else if (AfterTax > 30755 && AfterTax <= 44755)
+            {
+                result = (45+300+900+6500+AfterTax-38500*0.3)/0.7;
+            }
+            else if (AfterTax > 44755 && AfterTax <= 61005)
+            {
+                result = (45+300+900+6500+6000+AfterTax-58500*0.35)/0.65;
+            }
+            else if (AfterTax > 61005)
+            {
+                result = (45 + 300 + 900 + 6500 + 6000 + 8750 + AfterTax - 83500 * 0.45)/0.55;
+            }
+            return result;
+        }
+
     }
 }
