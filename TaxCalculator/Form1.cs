@@ -70,38 +70,42 @@ namespace TaxCalculator
             Range r;
             while (RowIndex < cnt)
             {
-                if (cnt - RowIndex > 10000)
+                if (cnt + 1 - RowIndex > 10000)
                 {
                     objData=new object[10000+1,columncnt];
-                    for (int i = RowIndex; i < RowIndex + 10000; i++)
+                    for (int i = 0; i < 10000; i++)
                     {
-                        System.Data.DataRow dr = dt.Rows[i];
+                        System.Data.DataRow dr = dt.Rows[RowIndex + i];
                         for (int j = 0; j < columncnt; j++)
                         {
                             objData[i, j] = dr[j];
                         }
                     }
+                    r = ws.get_Range(app.Cells[RowIndex + 1, 1], app.Cells[RowIndex + 10001, columncnt]);
+                    r.NumberFormat = "@";
+                    r.Value2 = objData;
                     RowIndex += 10000;
-                    r = ws.get_Range(app.Cells[RowIndex, 1], app.Cells[RowIndex + 10000, columncnt]);
                 }
                 else
                 {
                     objData = new object[cnt + 1 - RowIndex, columncnt];
-                    for (int i = RowIndex; i < cnt + 1 - RowIndex; i++)
+                    for (int i = 0; i < cnt - RowIndex; i++)
                     {
-                        System.Data.DataRow dr = dt.Rows[i];
+                        System.Data.DataRow dr = dt.Rows[i + RowIndex];
                         for (int j = 0; j < columncnt; j++)
                         {
                             objData[i, j] = dr[j];
                         }
                     }
+                    r = ws.get_Range(app.Cells[RowIndex + 1, 1], app.Cells[cnt + 1, columncnt]);
+                    r.NumberFormat = "@";
+                    r.Value2 = objData;
                     RowIndex += cnt + 1 - RowIndex;
-                    r = ws.get_Range(app.Cells[RowIndex, 1], app.Cells[cnt + 1, columncnt]);
                 }
-                r.NumberFormat = "@";
+                //r.NumberFormat = "@";
                 //r = r.get_Resize(cnt+1, columncnt);
-                r.Value2 = objData;
-                r.EntireColumn.AutoFit();
+                //r.Value2 = objData;
+               // r.EntireColumn.AutoFit();
             }
 
             /*
@@ -907,7 +911,7 @@ namespace TaxCalculator
             {
                 dt.Columns.Add("com"+i);
             }
-            for (int i = 0; i < 30000; i++)
+            for (int i = 0; i < 62000; i++)
             {
                 dt.Rows.Add();
                 for (int j = 0; j < 68;j++ )
