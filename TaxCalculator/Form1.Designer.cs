@@ -62,16 +62,15 @@
             this.radioButton_zg = new System.Windows.Forms.RadioButton();
             this.label_statu = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.button_test = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button_shuiqian = new System.Windows.Forms.Button();
-            this.textBox_shuihou = new System.Windows.Forms.TextBox();
             this.resultBox_shuiqian = new System.Windows.Forms.TextBox();
+            this.textBox_shuihou = new System.Windows.Forms.TextBox();
+            this.button_shuiqian = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,7 +259,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(456, 218);
+            this.label9.Location = new System.Drawing.Point(457, 242);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 21);
@@ -429,13 +428,23 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(261, 218);
+            this.groupBox3.Location = new System.Drawing.Point(261, 230);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(487, 179);
+            this.groupBox3.Size = new System.Drawing.Size(487, 167);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "更多功能开发中";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(308, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(164, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "此计算结果扣除了社保公积金";
             // 
             // button_test
             // 
@@ -445,11 +454,11 @@
             this.button_test.TabIndex = 26;
             this.button_test.Text = "TESTbutton";
             this.button_test.UseVisualStyleBackColor = true;
-            this.button_test.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.resultBox_shuiqian);
             this.groupBox4.Controls.Add(this.textBox_shuihou);
             this.groupBox4.Controls.Add(this.button_shuiqian);
@@ -461,27 +470,25 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "税后推税前(目前只限中国员工)";
             // 
-            // label4
+            // resultBox_shuiqian
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 41);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 21);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "税后工资：";
+            this.resultBox_shuiqian.Location = new System.Drawing.Point(369, 32);
+            this.resultBox_shuiqian.Name = "resultBox_shuiqian";
+            this.resultBox_shuiqian.ReadOnly = true;
+            this.resultBox_shuiqian.Size = new System.Drawing.Size(100, 29);
+            this.resultBox_shuiqian.TabIndex = 3;
             // 
-            // label8
+            // textBox_shuihou
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(262, 70);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(28, 21);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "11";
+            this.textBox_shuihou.Location = new System.Drawing.Point(111, 32);
+            this.textBox_shuihou.Name = "textBox_shuihou";
+            this.textBox_shuihou.Size = new System.Drawing.Size(100, 29);
+            this.textBox_shuihou.TabIndex = 2;
+            this.textBox_shuihou.TextChanged += new System.EventHandler(this.textBox_shuihou_TextChanged);
             // 
             // button_shuiqian
             // 
-            this.button_shuiqian.Location = new System.Drawing.Point(236, 32);
+            this.button_shuiqian.Location = new System.Drawing.Point(236, 28);
             this.button_shuiqian.Name = "button_shuiqian";
             this.button_shuiqian.Size = new System.Drawing.Size(118, 34);
             this.button_shuiqian.TabIndex = 1;
@@ -489,21 +496,14 @@
             this.button_shuiqian.UseVisualStyleBackColor = true;
             this.button_shuiqian.Click += new System.EventHandler(this.button_shuiqian_Click);
             // 
-            // textBox_shuihou
+            // label4
             // 
-            this.textBox_shuihou.Location = new System.Drawing.Point(111, 36);
-            this.textBox_shuihou.Name = "textBox_shuihou";
-            this.textBox_shuihou.Size = new System.Drawing.Size(100, 29);
-            this.textBox_shuihou.TabIndex = 2;
-            this.textBox_shuihou.TextChanged += new System.EventHandler(this.textBox_shuihou_TextChanged);
-            // 
-            // resultBox_shuiqian
-            // 
-            this.resultBox_shuiqian.Location = new System.Drawing.Point(369, 36);
-            this.resultBox_shuiqian.Name = "resultBox_shuiqian";
-            this.resultBox_shuiqian.ReadOnly = true;
-            this.resultBox_shuiqian.Size = new System.Drawing.Size(100, 29);
-            this.resultBox_shuiqian.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "税后工资：";
             // 
             // Form1
             // 
@@ -534,8 +534,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);

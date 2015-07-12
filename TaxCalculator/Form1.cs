@@ -924,24 +924,24 @@ namespace TaxCalculator
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            System.Data.DataTable dt = new System.Data.DataTable();
-            for (int i = 0; i < 68; i++)
-            {
-                dt.Columns.Add("com"+i);
-            }
-            for (int i = 0; i < 62000; i++)
-            {
-                dt.Rows.Add();
-                for (int j = 0; j < 68;j++ )
-                {
-                    dt.Rows[i][j] = i + "." + j;
-                }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    System.Data.DataTable dt = new System.Data.DataTable();
+        //    for (int i = 0; i < 68; i++)
+        //    {
+        //        dt.Columns.Add("com"+i);
+        //    }
+        //    for (int i = 0; i < 62000; i++)
+        //    {
+        //        dt.Rows.Add();
+        //        for (int j = 0; j < 68;j++ )
+        //        {
+        //            dt.Rows[i][j] = i + "." + j;
+        //        }
                 
-            }
-            DoExport(dt);
-        }
+        //    }
+        //    DoExport(dt);
+        //}
 
         private void button_shuiqian_Click(object sender, EventArgs e)
         {
